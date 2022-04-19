@@ -1,4 +1,4 @@
-import "./App.css"
+import "./App.scss"
 import Panel from "./components/Panel/Panel"
 
 const BOOKINGS = {
