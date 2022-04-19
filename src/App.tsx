@@ -1,21 +1,26 @@
 import "./App.css"
+import Panel from "./components/Panel/Panel"
+
+const BOOKINGS = {
+  _id: "6251f1d21b173966bcbada52",
+  fieldUsername: "elcilindro",
+  bookings: [
+    {
+      hours: [false, true, false, false, true, true, true, false],
+      type: "7",
+    },
+    {
+      hours: [true, false, true, true, false, true, true, false],
+      type: "7",
+    },
+  ],
+  startsAt: 16,
+}
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Panel bookings={BOOKINGS.bookings} startsAt={BOOKINGS.startsAt} />
     </div>
   )
 }
