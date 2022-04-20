@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import "./index.scss"
 import App from "./App"
 import Profile from "./routes/Profile"
+import NotFound from "./routes/404"
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement)
 root.render(
@@ -13,6 +14,7 @@ root.render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="profile" element={<Profile />} />
+        <Route path="404" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

@@ -1,26 +1,33 @@
 import "./App.scss"
 import Panel from "./components/Panel/Panel"
-
-const BOOKINGS = {
-  _id: "6251f1d21b173966bcbada52",
-  fieldUsername: "elcilindro",
-  bookings: [
-    {
-      hours: [false, true, false, false, true, true, true, false],
-      type: "7",
-    },
-    {
-      hours: [true, false, true, true, false, true, true, false],
-      type: "7",
-    },
-  ],
-  startsAt: 16,
-}
+import { Link, useNavigate } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { getBookingsByFieldUsername } from "./services/getBookings"
+import { IBooking } from "./interfaces/interfaces"
 
 function App() {
+  const [bookings, setBookings] = useState<IBooking>()
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    getBookingsByFieldUsername("elcilindro")
+      .then((res) => {
+        setBookings(res)
+      })
+      .catch((e) => {
+        console.log(e)
+        navigate("/404")
+      })
+  }, [navigate])
+
   return (
     <div className="App">
-      <Panel bookings={BOOKINGS.bookings} startsAt={BOOKINGS.startsAt} />
+      {bookings && (
+        <>
+          <Panel bookings={bookings.bookings} startsAt={bookings.startsAt} />
+          <Link to="/profile">Perfil</Link>
+        </>
+      )}
     </div>
   )
 }
