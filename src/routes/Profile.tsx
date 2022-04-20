@@ -1,7 +1,7 @@
 import "../App.scss"
 import { Link } from "react-router-dom"
 
-function App() {
+function Profile() {
   return (
     <div className="App">
       <h1>Perfil</h1>
@@ -10,4 +10,4 @@ function App() {
   )
 }
 
-export default App
+export default Profile
