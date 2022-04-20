@@ -1,7 +1,8 @@
+import { useNavigate } from "react-router-dom"
+import { useEffect, useState } from "react"
+
 import "./App.scss"
 import Panel from "./components/Panel/Panel"
-import { Link, useNavigate } from "react-router-dom"
-import { useEffect, useState } from "react"
 import { getBookingsByFieldUsername } from "./services/getBookings"
 import { IBooking } from "./interfaces/interfaces"
 
@@ -25,7 +26,6 @@ function App() {
       {bookings && (
         <>
           <Panel bookings={bookings.bookings} startsAt={bookings.startsAt} />
-          <Link to="/profile">Perfil</Link>
         </>
       )}
     </div>
