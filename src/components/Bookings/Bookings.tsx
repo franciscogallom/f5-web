@@ -1,5 +1,5 @@
 import { FC } from "react"
-import "./Bookings.scss"
+import "./bookings.scss"
 
 import { IBookings } from "../../interfaces/props"
 
