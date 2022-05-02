@@ -1,5 +1,7 @@
+@use "../../assets/colors.scss" as *;
+
 .label {
-  color: #fff;
+  color: $secondary;
   font-size: 1.25em;
   text-transform: uppercase;
   font-weight: 900;
@@ -28,7 +30,7 @@
 }
 
 .bookingText {
-  color: #fff;
+  color: $secondary;
   font-size: 2.5em;
   font-weight: bolder;
   transition: transform 0.25s ease-in-out;

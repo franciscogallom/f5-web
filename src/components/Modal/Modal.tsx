@@ -2,11 +2,15 @@ import { FC } from "react"
 
 import "./modal.scss"
 import { IModal } from "../../interfaces/props"
+import { colors } from "../../assets/colors"
 
 const Modal: FC<IModal> = ({ hideModal, hour, label, status }) => {
   return (
     <div className="modal-container">
-      <div className="modal" style={{ backgroundColor: status ? "#0fa" : "#97168c" }}>
+      <div
+        className="modal"
+        style={{ backgroundColor: status ? colors.tertiary : colors.quaternary }}
+      >
         <div className="booking-data">
           <p>⚽ {label}</p>
           <p style={{ cursor: "pointer" }} onClick={hideModal}>

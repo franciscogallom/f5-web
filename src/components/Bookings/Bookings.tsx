@@ -3,6 +3,7 @@ import "./bookings.scss"
 
 import { IBookings } from "../../interfaces/props"
 import Modal from "../Modal/Modal"
+import { colors } from "../../assets/colors"
 
 const Bookings: FC<IBookings> = ({ index, startsAt, fieldHours }) => {
   const [showModal, setShowModal] = useState(false)
@@ -22,7 +23,7 @@ const Bookings: FC<IBookings> = ({ index, startsAt, fieldHours }) => {
                 key={i}
                 className="bookingButton"
                 style={{
-                  backgroundColor: status ? "#0fa" : "#97168c",
+                  backgroundColor: status ? colors.tertiary : colors.quaternary,
                 }}
                 onClick={() => {
                   setStatus(status)

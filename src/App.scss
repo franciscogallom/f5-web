@@ -1,6 +1,8 @@
+@use "./assets/colors.scss" as *;
+
 .App {
   min-height: 100vh;
-  background-color: #1a1a1a;
+  background-color: $primary;
   display: flex;
   flex-direction: column;
   justify-content: center;
