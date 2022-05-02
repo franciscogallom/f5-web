@@ -1,0 +1,45 @@
+.modal-container {
+  position: fixed;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1a1a1aba;
+
+  .modal {
+    width: 80%;
+    padding: 1em;
+    border-radius: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px,
+      rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px,
+      rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+    .booking-data {
+      font-weight: 900;
+      font-size: 1.5em;
+      margin: 0.25em;
+
+      &:first-child {
+        text-transform: uppercase;
+        display: flex;
+        justify-content: space-between;
+
+        & p {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .modal-container .modal {
+    width: 40%;
+  }
+}

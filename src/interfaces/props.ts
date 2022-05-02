@@ -10,3 +10,10 @@ export interface IAppointments {
   bookings: BookingsEntity[]
   startsAt: number
 }
+
+export interface IModal {
+  hideModal: () => void
+  hour: number
+  label: string
+  status: boolean
+}
