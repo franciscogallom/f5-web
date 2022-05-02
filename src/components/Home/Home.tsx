@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
 
-import "./app.scss"
-import Panel from "./components/Panel/Panel"
-import Navbar from "./components/Navbar/Navbar"
-import { getBookingsByFieldUsername } from "./services/getBookings"
-import { IBooking } from "./interfaces/interfaces"
+import "./home.scss"
+import Panel from "../Panel/Panel"
+import Navbar from "../Navbar/Navbar"
+import { getBookingsByFieldUsername } from "../../services/getBookings"
+import { IBooking } from "../../interfaces/interfaces"
 
 function App() {
   const [bookings, setBookings] = useState<IBooking>()
