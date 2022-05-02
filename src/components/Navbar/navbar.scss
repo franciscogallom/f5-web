@@ -1,0 +1,116 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 5em;
+  background-color: #1a1a1af0;
+  position: fixed;
+  left: 0;
+  right: 0;
+
+  @media (max-width: 768px) {
+    justify-content: space-between;
+    padding: 0.5rem 1.5rem;
+  }
+
+  .icon {
+    height: 4em;
+  }
+
+  .links-container {
+    position: absolute;
+    bottom: -2000px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    transition: all 0.5s ease;
+
+    @media (min-width: 768px) {
+      position: initial;
+      margin: 0;
+    }
+
+    a {
+      color: #fff;
+      text-decoration: none;
+      margin-right: 1em;
+      text-transform: uppercase;
+      font-weight: 900;
+    }
+  }
+
+  .active {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #1a1a1a;
+
+    a {
+      margin-top: 1em;
+      font-size: 1.5em;
+    }
+  }
+}
+
+/* Burger Button */
+.burger-btn {
+  width: 35px;
+  height: 30px;
+  margin: 10px 10px;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+}
+.burger-btn span {
+  background-color: #fff;
+  position: absolute;
+  border-radius: 2px;
+  transition: 0.3s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+  width: 100%;
+  height: 4px;
+  transition-duration: 500ms;
+}
+.burger-btn span:nth-child(1) {
+  top: 0px;
+  left: 0px;
+}
+.burger-btn span:nth-child(2) {
+  top: 13px;
+  left: 0px;
+  opacity: 1;
+}
+.burger-btn span:nth-child(3) {
+  bottom: 0px;
+  left: 0px;
+}
+.burger-btn:not(.open):hover span:nth-child(1) {
+  transform: rotate(-3deg) scaleY(1.1);
+}
+.burger-btn:not(.open):hover span:nth-child(2) {
+  transform: rotate(3deg) scaleY(1.1);
+}
+.burger-btn:not(.open):hover span:nth-child(3) {
+  transform: rotate(-4deg) scaleY(1.1);
+}
+.burger-btn.open span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 13px;
+}
+.burger-btn.open span:nth-child(2) {
+  opacity: 0;
+}
+.burger-btn.open span:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 13px;
+}
+
+@media (min-width: 768px) {
+  .burger-btn {
+    display: none;
+  }
+}

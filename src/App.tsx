@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 
 import "./App.scss"
 import Panel from "./components/Panel/Panel"
+import Navbar from "./components/Navbar/Navbar"
 import { getBookingsByFieldUsername } from "./services/getBookings"
 import { IBooking } from "./interfaces/interfaces"
 
@@ -22,13 +23,16 @@ function App() {
   }, [navigate])
 
   return (
-    <div className="App">
-      {bookings && (
-        <>
-          <Panel bookings={bookings.bookings} startsAt={bookings.startsAt} />
-        </>
-      )}
-    </div>
+    <>
+      <Navbar />
+      <div className="App">
+        {bookings && (
+          <>
+            <Panel bookings={bookings.bookings} startsAt={bookings.startsAt} />
+          </>
+        )}
+      </div>
+    </>
   )
 }
 
