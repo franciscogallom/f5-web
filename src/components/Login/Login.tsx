@@ -1,6 +1,8 @@
 import { useState } from "react"
-import { login } from "../../services/login"
+import toast from "react-hot-toast"
+
 import "./login.scss"
+import { login } from "../../services/login"
 
 const Login = () => {
   const [username, setUsername] = useState("")
@@ -10,9 +12,15 @@ const Login = () => {
     e.preventDefault()
     login(username, password)
       .then((res) => {
+        if (res.error) {
+          toast.error("Usuario y contraseña no coinciden.", { position: "bottom-center" })
+        } else {
+          toast.success("Inicio de sesión exitoso.", { position: "bottom-center" })
+        }
         console.log(res)
       })
       .catch((e) => {
+        toast.error("Algo salió mal...", { position: "bottom-center" })
         console.log(e)
       })
   }

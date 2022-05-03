@@ -7,10 +7,12 @@ import Home from "./components/Home/Home"
 import Profile from "./routes/Profile"
 import NotFound from "./routes/404"
 import Login from "./components/Login/Login"
+import { Toaster } from "react-hot-toast"
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement)
 root.render(
   <React.StrictMode>
+    <Toaster />
     <BrowserRouter>
       <Routes>
         <Route path="/" element={false ? <Home /> : <Login />} />
