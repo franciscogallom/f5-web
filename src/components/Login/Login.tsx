@@ -1,13 +1,20 @@
 import { useState } from "react"
+import { login } from "../../services/login"
 import "./login.scss"
 
 const Login = () => {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
 
-  const handleLogin = (e: any) => {
+  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    alert(`usuario ${username} y password ${password}`)
+    login(username, password)
+      .then((res) => {
+        console.log(res)
+      })
+      .catch((e) => {
+        console.log(e)
+      })
   }
 
   return (
