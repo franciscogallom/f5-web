@@ -9,3 +9,16 @@ export interface IBooking {
   bookings: BookingsEntity[]
   startsAt: number
 }
+
+export interface IField {
+  id: string
+  name: string
+  user: string
+  password: string
+  numberOfRatings: number
+  sumOfRatings: number
+  image: string
+  location: string
+  phone: string
+  price: string
+}

@@ -1,11 +1,12 @@
 import axios from "axios"
+import { IField } from "../interfaces/interfaces"
 
 import { API_URL_BASE } from "./API_URL_BASE"
 
-// TO-DO: Change "any"
 interface Response {
   error: boolean
-  data: any
+  data: IField
+  token: string | null
 }
 
 export const login = (username: string, password: string): Promise<Response> =>
