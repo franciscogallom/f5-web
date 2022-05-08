@@ -18,7 +18,7 @@ root.render(
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="profile" element={<Profile />} />
-          <Route path="404" element={<NotFound />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </ContextProvider>
