@@ -1,26 +1,30 @@
 import { useNavigate } from "react-router-dom"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 
 import "./home.scss"
 import Panel from "../Panel/Panel"
 import Navbar from "../Navbar/Navbar"
 import { getBookingsByFieldUsername } from "../../services/getBookings"
 import { IBooking } from "../../interfaces/interfaces"
+import Context from "../../context/context"
 
 function App() {
   const [bookings, setBookings] = useState<IBooking>()
   const navigate = useNavigate()
+  const { user } = useContext(Context)
 
   useEffect(() => {
-    getBookingsByFieldUsername("elcilindro")
-      .then((res) => {
-        setBookings(res)
-      })
-      .catch((e) => {
-        console.log(e)
-        navigate("/404")
-      })
-  }, [navigate])
+    if (user) {
+      getBookingsByFieldUsername(user)
+        .then((res) => {
+          setBookings(res)
+        })
+        .catch((e) => {
+          console.log(e)
+          navigate("/404")
+        })
+    }
+  }, [navigate, user])
 
   return (
     <>

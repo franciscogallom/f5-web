@@ -1,12 +1,14 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import toast from "react-hot-toast"
 
 import "./login.scss"
 import { login } from "../../services/login"
+import Context from "../../context/context"
 
 const Login = () => {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
+  const { setUser } = useContext(Context)
 
   const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -16,8 +18,9 @@ const Login = () => {
           toast.error("Usuario y contraseña no coinciden.", { position: "bottom-center" })
         } else {
           toast.success("Inicio de sesión exitoso.", { position: "bottom-center" })
+          localStorage.setItem("token", `${res.token}`)
+          setUser(username)
         }
-        console.log(res)
       })
       .catch((e) => {
         toast.error("Algo salió mal...", { position: "bottom-center" })

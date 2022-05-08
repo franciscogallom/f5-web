@@ -1,15 +1,26 @@
-import { Link } from "react-router-dom"
+import { useContext } from "react"
+import Login from "../components/Login/Login"
 import Navbar from "../components/Navbar/Navbar"
+import Context from "../context/context"
 
 function Profile() {
-  return (
+  const { user, setUser } = useContext(Context)
+
+  const handleLogout = () => {
+    localStorage.removeItem("token")
+    setUser("")
+  }
+
+  return user ? (
     <>
       <Navbar />
-      <div className="">
+      <div className="App">
         <h1>Perfil</h1>
-        <Link to="/">Home</Link>
+        <button onClick={handleLogout}>LogOut</button>
       </div>
     </>
+  ) : (
+    <Login />
   )
 }
 
