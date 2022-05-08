@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/franciscogallom/f5-web/static/css/main.93e011d1.css",
+    "main.js": "/franciscogallom/f5-web/static/js/main.007c93f8.js",
+    "index.html": "/franciscogallom/f5-web/index.html",
+    "main.93e011d1.css.map": "/franciscogallom/f5-web/static/css/main.93e011d1.css.map",
+    "main.007c93f8.js.map": "/franciscogallom/f5-web/static/js/main.007c93f8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.93e011d1.css",
+    "static/js/main.007c93f8.js"
+  ]
+}
