@@ -31,7 +31,12 @@ const Modal: FC<IModal> = ({ hideModal, hour, label, status }) => {
     if (isRented) {
       getUserFromBooking(user, label, hour)
         .then((res) => {
-          setUsername(res.username)
+          if (res.username.includes(Messages.createdByField)) {
+            const trimUsername = res.username.split(Messages.createdByField)[0]
+            setUsername(`${trimUsername} (sin usuario).`)
+          } else {
+            setUsername(res.username)
+          }
           setPhone(res.phone)
         })
         .catch((e) => {
@@ -90,7 +95,7 @@ const Modal: FC<IModal> = ({ hideModal, hour, label, status }) => {
         ) : (
           <>
             <p className="booking-data">😺 {username}</p>
-            <p className="booking-data">📞 {phone}</p>
+            <p className="booking-data">📞 {phone || "Celular no registrado."}</p>
           </>
         )}
       </div>
