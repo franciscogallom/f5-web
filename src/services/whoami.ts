@@ -3,7 +3,8 @@ import axios from "axios"
 import { API_URL_BASE } from "./API_URL_BASE"
 
 interface Response {
-  id: string
+  idSQL: string
+  idMongo: string
   username: string
   name: string
   iat: number
