@@ -10,8 +10,8 @@ import { Messages } from "../../assets/messages"
 
 const Modal: FC<IModal> = ({ hideModal, hour, label, status }) => {
   const { user } = useContext(Context)
-  const [username, setUsername] = useState("")
-  const [phone, setPhone] = useState("")
+  const [username, setUsername] = useState<string>(Messages.loading)
+  const [phone, setPhone] = useState<string>(Messages.loading)
 
   const escFunction = useCallback(
     (event: KeyboardEvent) => {
