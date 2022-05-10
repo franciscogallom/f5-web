@@ -35,6 +35,15 @@
         }
       }
     }
+
+    .cross {
+      cursor: pointer;
+      transition: transform 0.25s ease;
+
+      &:hover {
+        transform: scale(1.15);
+      }
+    }
   }
 }
 

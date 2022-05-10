@@ -1,4 +1,4 @@
-import { FC, useContext, useEffect, useState } from "react"
+import { FC, useCallback, useContext, useEffect, useState } from "react"
 import toast from "react-hot-toast"
 
 import "./modal.scss"
@@ -13,6 +13,15 @@ const Modal: FC<IModal> = ({ hideModal, hour, label, status }) => {
   const [username, setUsername] = useState("")
   const [phone, setPhone] = useState("")
 
+  const escFunction = useCallback(
+    (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        hideModal()
+      }
+    },
+    [hideModal]
+  )
+
   useEffect(() => {
     getUserFromBooking(user, label, hour)
       .then((res) => {
@@ -23,7 +32,13 @@ const Modal: FC<IModal> = ({ hideModal, hour, label, status }) => {
         toast.error(Messages.error, { position: "bottom-center" })
         hideModal()
       })
-  })
+
+    document.addEventListener("keydown", escFunction, false)
+
+    return () => {
+      document.removeEventListener("keydown", escFunction, false)
+    }
+  }, [escFunction, hideModal, hour, label, user])
 
   return (
     <div className="modal-container">
@@ -33,7 +48,7 @@ const Modal: FC<IModal> = ({ hideModal, hour, label, status }) => {
       >
         <div className="booking-data">
           <p>⚽ {label}</p>
-          <p style={{ cursor: "pointer" }} onClick={hideModal}>
+          <p className="cross" onClick={hideModal}>
             ❌
           </p>
         </div>
