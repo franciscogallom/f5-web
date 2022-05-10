@@ -5,6 +5,7 @@ import { API_URL_BASE } from "./API_URL_BASE"
 interface Response {
   id: string
   username: string
+  name: string
   iat: number
 }
 

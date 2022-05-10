@@ -7,7 +7,7 @@ import { whoami } from "../services/whoami"
 import { useNavigate } from "react-router-dom"
 
 const Main = () => {
-  const { user, setUser } = useContext(Context)
+  const { user, setUser, setName } = useContext(Context)
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -15,11 +15,12 @@ const Main = () => {
     whoami(`${token}`)
       .then((res) => {
         setUser(res.username)
+        setName(res.name)
       })
       .catch((e) => {
         navigate("/404")
       })
-  }, [user, setUser, navigate])
+  }, [setUser, navigate, setName])
 
   return user ? <Home /> : <Login />
 }
