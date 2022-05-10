@@ -17,3 +17,7 @@ export interface IModal {
   label: string
   status: boolean
 }
+
+export interface ILoader {
+  fullscreen?: boolean
+}

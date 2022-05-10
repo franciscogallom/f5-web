@@ -5,13 +5,16 @@ import "./login.scss"
 import { login } from "../../services/login"
 import Context from "../../context/context"
 import { Messages } from "../../assets/messages"
+import Loader from "../Loader/Loader"
 
 const Login = () => {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
+  const [loading, setLoading] = useState(false)
   const { setUser } = useContext(Context)
 
   const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
+    setLoading(true)
     e.preventDefault()
     login(username, password)
       .then((res) => {
@@ -27,9 +30,14 @@ const Login = () => {
         toast.error(Messages.error, { position: "bottom-center" })
         console.log(e)
       })
+      .finally(() => {
+        setLoading(false)
+      })
   }
 
-  return (
+  return loading ? (
+    <Loader fullscreen />
+  ) : (
     <div className="login-container">
       <form onSubmit={(e) => handleLogin(e)} className="login">
         <input

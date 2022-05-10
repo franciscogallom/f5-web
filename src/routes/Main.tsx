@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom"
 
 const Main = () => {
   const { user, setUser, setName } = useContext(Context)
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -27,18 +27,7 @@ const Main = () => {
       })
   }, [setUser, navigate, setName])
 
-  return (
-    <div
-      style={{
-        height: "100vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      {loading ? <Loader /> : user ? <Home /> : <Login />}
-    </div>
-  )
+  return loading ? <Loader fullscreen /> : user ? <Home /> : <Login />
 }
 
 export default Main
