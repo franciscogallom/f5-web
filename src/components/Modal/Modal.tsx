@@ -23,22 +23,25 @@ const Modal: FC<IModal> = ({ hideModal, hour, label, status }) => {
   )
 
   useEffect(() => {
-    getUserFromBooking(user, label, hour)
-      .then((res) => {
-        setUsername(res.username)
-        setPhone(res.phone)
-      })
-      .catch((e) => {
-        toast.error(Messages.error, { position: "bottom-center" })
-        hideModal()
-      })
+    const isRented = !status
+    if (isRented) {
+      getUserFromBooking(user, label, hour)
+        .then((res) => {
+          setUsername(res.username)
+          setPhone(res.phone)
+        })
+        .catch((e) => {
+          toast.error(Messages.error, { position: "bottom-center" })
+          hideModal()
+        })
 
-    document.addEventListener("keydown", escFunction, false)
+      document.addEventListener("keydown", escFunction, false)
 
-    return () => {
-      document.removeEventListener("keydown", escFunction, false)
+      return () => {
+        document.removeEventListener("keydown", escFunction, false)
+      }
     }
-  }, [escFunction, hideModal, hour, label, user])
+  }, [escFunction, hideModal, hour, label, user, status])
 
   return (
     <div className="modal-container">
