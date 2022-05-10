@@ -34,12 +34,12 @@ const Modal: FC<IModal> = ({ hideModal, hour, label, status }) => {
           toast.error(Messages.error, { position: "bottom-center" })
           hideModal()
         })
+    }
 
-      document.addEventListener("keydown", escFunction, false)
+    document.addEventListener("keydown", escFunction, false)
 
-      return () => {
-        document.removeEventListener("keydown", escFunction, false)
-      }
+    return () => {
+      document.removeEventListener("keydown", escFunction, false)
     }
   }, [escFunction, hideModal, hour, label, user, status])
 
