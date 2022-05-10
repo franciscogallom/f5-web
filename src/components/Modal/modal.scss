@@ -75,6 +75,8 @@
       padding: 1em;
       transition: all 0.5s ease;
       border-radius: 1em;
+      display: flex;
+      justify-content: center;
 
       &:hover {
         background-color: $primary;
