@@ -3,7 +3,7 @@ import { FC } from "react"
 import "./loader.scss"
 import { ILoader } from "../../interfaces/props"
 
-const Loader: FC<ILoader> = ({ fullscreen }) => {
+const Loader: FC<ILoader> = ({ fullscreen, black, small }) => {
   return fullscreen ? (
     <div
       style={{
@@ -14,10 +14,10 @@ const Loader: FC<ILoader> = ({ fullscreen }) => {
         zIndex: 100,
       }}
     >
-      <div className="pulsar"></div>
+      <div className={`pulsar ${black ? "black" : ""} ${small ? "small" : ""}`}></div>
     </div>
   ) : (
-    <div className="pulsar"></div>
+    <div className={`pulsar ${black ? "black" : ""} ${small ? "small" : ""}`}></div>
   )
 }
 

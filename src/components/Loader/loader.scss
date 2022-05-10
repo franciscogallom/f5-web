@@ -8,6 +8,14 @@
   width: var(--uib-size);
 }
 
+.black {
+  --uib-color: #191414;
+}
+
+.small {
+  --uib-size: 2em;
+}
+
 .pulsar::before,
 .pulsar::after {
   content: "";
