@@ -20,4 +20,6 @@ export interface IModal {
 
 export interface ILoader {
   fullscreen?: boolean
+  black?: boolean
+  small?: boolean
 }
