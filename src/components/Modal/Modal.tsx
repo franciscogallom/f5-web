@@ -1,4 +1,4 @@
-import { FC, useCallback, useContext, useEffect, useState } from "react"
+import { FC, FormEvent, useCallback, useContext, useEffect, useState } from "react"
 import toast from "react-hot-toast"
 
 import "./modal.scss"
@@ -12,6 +12,7 @@ const Modal: FC<IModal> = ({ hideModal, hour, label, status }) => {
   const { user } = useContext(Context)
   const [username, setUsername] = useState<string>(Messages.loading)
   const [phone, setPhone] = useState<string>(Messages.loading)
+  const [newBookingUser, setNewBookingUser] = useState("")
 
   const escFunction = useCallback(
     (event: KeyboardEvent) => {
@@ -43,6 +44,11 @@ const Modal: FC<IModal> = ({ hideModal, hour, label, status }) => {
     }
   }, [escFunction, hideModal, hour, label, user, status])
 
+  const handleNewBooking = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    alert(`Turno reservado para ${newBookingUser}`)
+  }
+
   return (
     <div className="modal-container">
       <div
@@ -50,16 +56,22 @@ const Modal: FC<IModal> = ({ hideModal, hour, label, status }) => {
         style={{ backgroundColor: status ? colors.tertiary : colors.quaternary }}
       >
         <div className="booking-data">
-          <p>⚽ {label}</p>
+          <p>⚽ {label}.</p>
           <p className="cross" onClick={hideModal}>
             ❌
           </p>
         </div>
         <p className="booking-data">🕔 {hour}:00hs.</p>
+        {status && <p className="booking-data">👇 RESERVAR TURNO.</p>}
         {status ? (
-          <>
-            <button>Alquilar cancha</button>
-          </>
+          <form className="new-booking" onSubmit={(e) => handleNewBooking(e)}>
+            <input
+              type="text"
+              placeholder="a nombre de..."
+              onChange={({ target }) => setNewBookingUser(target.value)}
+            />
+            <button>Confirmar</button>
+          </form>
         ) : (
           <>
             <p className="booking-data">😺 {username}</p>

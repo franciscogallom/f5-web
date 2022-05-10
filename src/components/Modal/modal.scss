@@ -1,3 +1,5 @@
+@use "../../assets/colors.scss" as *;
+
 .modal-container {
   position: fixed;
   top: 0;
@@ -11,7 +13,7 @@
 
   .modal {
     width: 80%;
-    padding: 1em;
+    padding: 1em 1.5em;
     border-radius: 2em;
     display: flex;
     flex-direction: column;
@@ -23,7 +25,7 @@
     .booking-data {
       font-weight: 900;
       font-size: 1.5em;
-      margin: 0.25em;
+      margin: 0.25em 0;
 
       &:first-child {
         text-transform: uppercase;
@@ -42,6 +44,41 @@
 
       &:hover {
         transform: scale(1.15);
+      }
+    }
+  }
+
+  .new-booking {
+    display: flex;
+    flex-direction: column;
+
+    input {
+      background-color: transparent;
+      border: none;
+      border-bottom: 0.1em solid $primary;
+      font-weight: bold;
+      font-size: 1em;
+
+      &::placeholder {
+        font-weight: bold;
+        opacity: 0.5;
+      }
+    }
+
+    button {
+      margin: 1em 0;
+      background-color: transparent;
+      border: 0.1em solid $primary;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-weight: 900;
+      padding: 1em;
+      transition: all 0.5s ease;
+      border-radius: 1em;
+
+      &:hover {
+        background-color: $primary;
+        color: $tertiary;
       }
     }
   }
