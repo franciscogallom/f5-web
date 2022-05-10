@@ -4,6 +4,7 @@ import toast from "react-hot-toast"
 import "./login.scss"
 import { login } from "../../services/login"
 import Context from "../../context/context"
+import { Messages } from "../../assets/messages"
 
 const Login = () => {
   const [username, setUsername] = useState("")
@@ -23,7 +24,7 @@ const Login = () => {
         }
       })
       .catch((e) => {
-        toast.error("Algo salió mal...", { position: "bottom-center" })
+        toast.error(Messages.error, { position: "bottom-center" })
         console.log(e)
       })
   }
