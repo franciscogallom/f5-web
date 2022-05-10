@@ -1,10 +1,30 @@
-import { FC } from "react"
+import { FC, useContext, useEffect, useState } from "react"
+import toast from "react-hot-toast"
 
 import "./modal.scss"
 import { IModal } from "../../interfaces/props"
 import { colors } from "../../assets/colors"
+import { getUserFromBooking } from "../../services/getUserFromBooking"
+import Context from "../../context/context"
+import { Messages } from "../../assets/messages"
 
 const Modal: FC<IModal> = ({ hideModal, hour, label, status }) => {
+  const { user } = useContext(Context)
+  const [username, setUsername] = useState("")
+  const [phone, setPhone] = useState("")
+
+  useEffect(() => {
+    getUserFromBooking(user, label, hour)
+      .then((res) => {
+        setUsername(res.username)
+        setPhone(res.phone)
+      })
+      .catch((e) => {
+        toast.error(Messages.error, { position: "bottom-center" })
+        hideModal()
+      })
+  })
+
   return (
     <div className="modal-container">
       <div
@@ -24,9 +44,8 @@ const Modal: FC<IModal> = ({ hideModal, hour, label, status }) => {
           </>
         ) : (
           <>
-            {/* TO-DO: Get user data */}
-            <p className="booking-data">😺 franciscogallom</p>
-            <p className="booking-data">📞 2314470987</p>
+            <p className="booking-data">😺 {username}</p>
+            <p className="booking-data">📞 {phone}</p>
           </>
         )}
       </div>
