@@ -8,6 +8,7 @@ import { ContextProvider } from "./context/context"
 import Profile from "./routes/Profile"
 import NotFound from "./routes/404"
 import Main from "./routes/Main"
+import SignUp from "./routes/SignUp"
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement)
 root.render(
@@ -18,6 +19,7 @@ root.render(
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="profile" element={<Profile />} />
+          <Route path="signup" element={<SignUp />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
