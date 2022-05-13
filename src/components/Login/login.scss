@@ -19,9 +19,11 @@
     input {
       font-size: 1.25rem;
       margin: 0 0 1em;
-      background-color: transparent;
       border: none;
-      border-bottom: 1px solid $quaternary;
+      padding-bottom: 0.25em;
+      background: linear-gradient(45deg, $primary, $quaternary 2%, $tertiary 98%, $primary) bottom
+        no-repeat;
+      background-size: 100% 0.05em;
       font-weight: bold;
       color: $secondary;
 
