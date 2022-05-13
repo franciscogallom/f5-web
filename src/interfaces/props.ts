@@ -23,3 +23,19 @@ export interface ILoader {
   black?: boolean
   small?: boolean
 }
+
+export interface IInput {
+  type: string
+  placeholder: string
+  handleOnChange: (value: string) => void
+}
+
+export interface IButtonOne {
+  text: string
+  loading: boolean
+}
+
+export interface IContainerWithForm {
+  children: JSX.Element[]
+  handleOnSubmit: (e: React.FormEvent<HTMLFormElement>) => void
+}

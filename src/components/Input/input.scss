@@ -1,0 +1,23 @@
+@use "../../assets/colors.scss" as *;
+
+.input {
+  font-size: 1.25rem;
+  margin: 0 0 1em;
+  border: none;
+  padding-bottom: 0.25em;
+  background: linear-gradient(45deg, $primary, $quaternary 2%, $tertiary 98%, $primary) bottom
+    no-repeat;
+  background-size: 100% 0.05em;
+  font-weight: bold;
+  color: $secondary;
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.221);
+  }
+}
+
+@media (min-width: 768px) {
+  .input {
+    font-size: 1rem;
+  }
+}
