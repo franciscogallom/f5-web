@@ -1,11 +1,14 @@
 import { useContext, useState } from "react"
 import toast from "react-hot-toast"
+import { Link } from "react-router-dom"
 
 import "./login.scss"
 import { login } from "../../services/login"
 import Context from "../../context/context"
 import { Messages } from "../../assets/messages"
-import Loader from "../Loader/Loader"
+import Input from "../Input/Input"
+import ButtonOne from "../ButtonOne/ButtonOne"
+import ContainerWithForm from "../ContainerWithForm/ContainerWithForm"
 
 const Login = () => {
   const [username, setUsername] = useState("")
@@ -14,46 +17,40 @@ const Login = () => {
   const { setUser } = useContext(Context)
 
   const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
-    setLoading(true)
     e.preventDefault()
-    login(username, password)
-      .then((res) => {
-        if (res.error) {
-          toast.error("Usuario y contraseña no coinciden.", { position: "bottom-center" })
-        } else {
-          toast.success("Inicio de sesión exitoso.", { position: "bottom-center" })
-          localStorage.setItem("token", `${res.token}`)
-          setUser(username)
-        }
-      })
-      .catch((e) => {
-        toast.error(Messages.error, { position: "bottom-center" })
-        console.log(e)
-      })
-      .finally(() => {
-        setLoading(false)
-      })
+    if (username.length === 0 || password.length === 0) {
+      toast.error(Messages.missingData, { position: "bottom-center" })
+    } else {
+      setLoading(true)
+      login(username, password)
+        .then((res) => {
+          if (res.error) {
+            toast.error("Usuario y contraseña no coinciden.", { position: "bottom-center" })
+          } else {
+            toast.success("Inicio de sesión exitoso.", { position: "bottom-center" })
+            localStorage.setItem("token", `${res.token}`)
+            setUser(username)
+          }
+        })
+        .catch((e) => {
+          toast.error(Messages.error, { position: "bottom-center" })
+          console.log(e)
+        })
+        .finally(() => {
+          setLoading(false)
+        })
+    }
   }
 
-  return loading ? (
-    <Loader fullscreen />
-  ) : (
-    <div className="login-container">
-      <form onSubmit={(e) => handleLogin(e)} className="login">
-        <input
-          type="text"
-          placeholder="usuario."
-          onChange={({ target }) => setUsername(target.value)}
-        />
-        <input
-          type="password"
-          placeholder="contraseña."
-          onChange={({ target }) => setPassword(target.value)}
-        />
-        <button className="login-btn">iniciar sesión</button>
-      </form>
-      <p className="add-my-field">Quiero sumar mi cancha!</p>
-    </div>
+  return (
+    <ContainerWithForm handleOnSubmit={handleLogin}>
+      <Input type="text" placeholder="usuario." handleOnChange={setUsername} />
+      <Input type="password" placeholder="contraseña." handleOnChange={setPassword} />
+      <ButtonOne text="iniciar sesión." loading={loading} />
+      <Link to="/signup" className="add-my-field">
+        Quiero sumar mi cancha!
+      </Link>
+    </ContainerWithForm>
   )
 }
 
