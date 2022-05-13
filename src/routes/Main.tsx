@@ -14,7 +14,7 @@ const Main = () => {
 
   useEffect(() => {
     const token = localStorage.getItem("token")
-    whoami(`${token}`)
+    whoami(token)
       .then((res) => {
         setUser(res.username)
         setName(res.name)

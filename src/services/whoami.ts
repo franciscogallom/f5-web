@@ -10,5 +10,5 @@ interface Response {
   iat: number
 }
 
-export const whoami = (token: string): Promise<Response> =>
+export const whoami = (token: string | null): Promise<Response> =>
   axios.post(`${API_URL_BASE}/fields/whoami`, { token }).then((response) => response.data)
