@@ -14,18 +14,20 @@ const Main = () => {
 
   useEffect(() => {
     const token = localStorage.getItem("token")
-    whoami(token)
-      .then((res) => {
-        setUser(res.username)
-        setName(res.name)
-        setMongoID(res.idMongo)
-      })
-      .catch((e) => {
-        navigate("/404")
-      })
-      .finally(() => {
-        setLoading(false)
-      })
+    if (token) {
+      whoami(token)
+        .then((res) => {
+          setUser(res.username)
+          setName(res.name)
+          setMongoID(res.idMongo)
+        })
+        .catch((e) => {
+          navigate("/404")
+        })
+        .finally(() => {
+          setLoading(false)
+        })
+    }
   }, [setUser, navigate, setName, setMongoID])
 
   return loading ? <Loader fullscreen /> : user ? <Home /> : <Login />
