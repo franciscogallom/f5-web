@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react"
 import toast from "react-hot-toast"
 import { useNavigate } from "react-router-dom"
 
-import "./setBooking.scss"
+import "./SetBooking.scss"
 import { getTimeRangeAndNumberOfField } from "../../services/getTimeRangeAndNumberOfField"
 import Context from "../../context/context"
 import ButtonTwo from "../ButtonTwo/ButtonTwo"

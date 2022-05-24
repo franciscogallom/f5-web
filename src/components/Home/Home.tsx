@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import { useContext, useEffect, useState } from "react"
 
-import "./home.scss"
+import "./Home.scss"
 import Panel from "../Panel/Panel"
 import Navbar from "../Navbar/Navbar"
 import { getBookingsByFieldUsername } from "../../services/getBookings"

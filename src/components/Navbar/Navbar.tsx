@@ -1,7 +1,7 @@
 import { FC, useContext, useState } from "react"
 import { Link, useLocation } from "react-router-dom"
 
-import "./navbar.scss"
+import "./Navbar.scss"
 import icon from "../../assets/icon-transparent.png"
 import Context from "../../context/context"
 

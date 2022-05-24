@@ -1,7 +1,7 @@
 import { FC, FormEvent, useCallback, useContext, useEffect, useState } from "react"
 import toast from "react-hot-toast"
 
-import "./modal.scss"
+import "./Modal.scss"
 import { IModal } from "../../interfaces/props"
 import { colors } from "../../assets/colors"
 import { getUserFromBooking } from "../../services/getUserFromBooking"

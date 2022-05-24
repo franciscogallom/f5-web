@@ -1,4 +1,4 @@
-import "./container-with-form.scss"
+import "./ContainerWithForm.scss"
 import { IContainerWithForm } from "../../interfaces/props"
 
 const ContainerWithForm = ({ children, handleOnSubmit }: IContainerWithForm) => {

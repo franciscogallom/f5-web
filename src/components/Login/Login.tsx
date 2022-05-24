@@ -2,7 +2,7 @@ import { useContext, useState } from "react"
 import toast from "react-hot-toast"
 import { Link } from "react-router-dom"
 
-import "./login.scss"
+import "./Login.scss"
 import { login } from "../../services/login"
 import Context from "../../context/context"
 import { Messages } from "../../assets/messages"

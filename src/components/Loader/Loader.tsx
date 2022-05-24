@@ -1,6 +1,6 @@
 import { FC } from "react"
 
-import "./loader.scss"
+import "./Loader.scss"
 import { ILoader } from "../../interfaces/props"
 
 const Loader: FC<ILoader> = ({ fullscreen, black, small }) => {

@@ -1,4 +1,4 @@
-import "./input.scss"
+import "./Input.scss"
 import { IInput } from "../../interfaces/props"
 
 const Input = ({ type, placeholder, handleOnChange }: IInput) => {

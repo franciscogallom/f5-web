@@ -1,5 +1,5 @@
 import { FC, useState } from "react"
-import "./bookings.scss"
+import "./Bookings.scss"
 
 import { IBookings } from "../../interfaces/props"
 import Modal from "../Modal/Modal"

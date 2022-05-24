@@ -1,4 +1,4 @@
-import "./buttonTwo.scss"
+import "./ButtonTwo.scss"
 import Loader from "../Loader/Loader"
 import { IButton } from "../../interfaces/props"
 
