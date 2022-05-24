@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 import Login from "../components/Login/Login"
 import Home from "../components/Home/Home"
 import Context from "../context/context"
 import Loader from "../components/Loader/Loader"
 import { whoami } from "../services/whoami"
-import { useNavigate } from "react-router-dom"
 
 const Main = () => {
   const { user, setUser, setName, setMongoID } = useContext(Context)
