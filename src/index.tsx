@@ -10,6 +10,7 @@ import Profile from "./routes/Profile"
 import NotFound from "./routes/404"
 import Main from "./routes/Main"
 import SignUp from "./routes/SignUp"
+import FixedBookings from "./routes/FixedBookings"
 
 // Set authorization token for all axios request.
 axios.defaults.headers.common["Authorization"] = `Bearer ${localStorage.getItem("token")}`
@@ -24,6 +25,7 @@ root.render(
           <Route path="/" element={<Main />} />
           <Route path="profile" element={<Profile />} />
           <Route path="signup" element={<SignUp />} />
+          <Route path="fixed-bookings" element={<FixedBookings />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

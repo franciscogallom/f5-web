@@ -22,6 +22,12 @@ const Navbar: FC = () => {
           <Link className={pathname === "/profile" ? "active-link" : ""} to={"/profile"}>
             Mi cuenta
           </Link>
+          <Link
+            className={pathname === "/fixed-bookings" ? "active-link" : ""}
+            to={"/fixed-bookings"}
+          >
+            Turnos fijos
+          </Link>
         </div>
         {/* Burger Button */}
         <div

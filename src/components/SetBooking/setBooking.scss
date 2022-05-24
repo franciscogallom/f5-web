@@ -1,0 +1,15 @@
+@use "../../assets/colors.scss" as *;
+
+.set-booking-container {
+  height: 60vh;
+  width: 50%;
+  background-color: #a0a0a063;
+  border-radius: 1em;
+  padding: 1em;
+
+  h1 {
+    text-transform: uppercase;
+    font-weight: 900;
+    font-style: italic;
+  }
+}
