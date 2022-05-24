@@ -1,5 +1,5 @@
-import Navbar from "../components/Navbar/Navbar"
-import SetBooking from "../components/SetBooking/SetBooking"
+import Navbar from "../omponentsSDS/Navbar/Navbar"
+import SetBooking from "../omponentsSDS/SetBooking/SetBooking"
 
 function FixedBookings() {
   return (
