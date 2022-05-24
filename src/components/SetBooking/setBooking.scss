@@ -1,7 +1,6 @@
 @use "../../assets/colors.scss" as *;
 
 .set-booking-container {
-  height: 60vh;
   width: 50%;
   background-color: #a0a0a063;
   border-radius: 1em;
@@ -11,5 +10,78 @@
     text-transform: uppercase;
     font-weight: 900;
     font-style: italic;
+  }
+
+  h5 {
+    font-weight: 800;
+    color: $tertiary;
+    margin-top: 0.1em;
+  }
+
+  .set-booking-settings {
+    display: flex;
+    justify-content: space-between;
+
+    div {
+      display: flex;
+      margin: 1em 0;
+    }
+  }
+
+  select {
+    background-color: transparent;
+    border: none;
+    margin-left: 1em;
+    font-weight: bold;
+
+    option {
+      background-color: $grey;
+      font-weight: bold;
+    }
+  }
+
+  input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 0.1em solid $primary;
+    font-weight: bold;
+    font-size: 1em;
+    width: 100%;
+
+    &::placeholder {
+      font-weight: bold;
+      opacity: 0.5;
+      color: $primary;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .set-booking-container {
+    width: 75%;
+
+    h5 {
+      font-size: 1em;
+    }
+
+    .set-booking-settings {
+      flex-direction: column;
+
+      div {
+        justify-content: space-between;
+      }
+    }
+
+    select {
+      font-size: 1em;
+
+      option {
+        font-size: 0.5em;
+      }
+    }
+
+    input {
+      font-size: 1.25em;
+    }
   }
 }
