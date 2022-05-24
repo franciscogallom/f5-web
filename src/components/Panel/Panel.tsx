@@ -1,5 +1,5 @@
 import { FC } from "react"
-import "./panel.scss"
+import "./Panel.scss"
 
 import Bookings from "../Bookings/Bookings"
 import { IAppointments } from "../../interfaces/props"
