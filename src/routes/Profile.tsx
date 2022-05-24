@@ -1,6 +1,6 @@
 import { useContext } from "react"
-import Login from "../omponentsSDS/Login/Login"
-import Navbar from "../omponentsSDS/Navbar/Navbar"
+import Login from "../components/Login/Login"
+import Navbar from "../components/Navbar/Navbar"
 import Context from "../context/context"
 
 function Profile() {

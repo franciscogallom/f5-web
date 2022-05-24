@@ -4,9 +4,9 @@ import toast from "react-hot-toast"
 
 import { requestInscription } from "../services/requestInscription"
 import { Messages } from "../assets/messages"
-import Input from "../omponentsSDS/Input/Input"
-import ButtonOne from "../omponentsSDS/ButtonOne/ButtonOne"
-import ContainerWithForm from "../omponentsSDS/ContainerWithForm/ContainerWithForm"
+import Input from "../components/Input/Input"
+import ButtonOne from "../components/ButtonOne/ButtonOne"
+import ContainerWithForm from "../components/ContainerWithForm/ContainerWithForm"
 
 const SignUp = () => {
   const [name, setName] = useState("")
