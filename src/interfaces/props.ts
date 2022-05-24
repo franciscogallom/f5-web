@@ -30,7 +30,7 @@ export interface IInput {
   handleOnChange: (value: string) => void
 }
 
-export interface IButtonOne {
+export interface IButton {
   text: string
   loading: boolean
 }

@@ -8,7 +8,7 @@ import { getUserFromBooking } from "../../services/getUserFromBooking"
 import Context from "../../context/context"
 import { Messages } from "../../assets/messages"
 import { reserve } from "../../services/reserve"
-import Loader from "../Loader/Loader"
+import ButtonTwo from "../ButtonTwo/ButtonTwo"
 
 const Modal: FC<IModal> = ({ hideModal, hour, label, status }) => {
   const { user, mongoID } = useContext(Context)
@@ -90,7 +90,7 @@ const Modal: FC<IModal> = ({ hideModal, hour, label, status }) => {
               placeholder="a nombre de..."
               onChange={({ target }) => setNewBookingUser(target.value)}
             />
-            <button>{loading ? <Loader small black /> : "Confirmar"}</button>
+            <ButtonTwo text="Confirmar" loading={loading} />
           </form>
         ) : (
           <>
