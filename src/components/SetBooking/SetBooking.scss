@@ -34,10 +34,12 @@
     border: none;
     margin-left: 1em;
     font-weight: bold;
+    color: $primary;
 
     option {
       background-color: $grey;
       font-weight: bold;
+      color: $primary;
     }
   }
 
