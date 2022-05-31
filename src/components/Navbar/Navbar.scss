@@ -27,14 +27,6 @@
     background: -webkit-linear-gradient(45deg, $quaternary, $tertiary);
     background-clip: text;
     -webkit-text-fill-color: transparent;
-
-    @media (max-width: 768px) {
-      display: none;
-    }
-  }
-
-  .icon {
-    height: 100%;
   }
 
   .links-container {
@@ -43,7 +35,6 @@
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    transition: all 0.5s ease;
 
     @media (min-width: 768px) {
       position: initial;

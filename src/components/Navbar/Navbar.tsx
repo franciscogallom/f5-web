@@ -2,7 +2,6 @@ import { FC, useContext, useState } from "react"
 import { Link, useLocation } from "react-router-dom"
 
 import "./Navbar.scss"
-import icon from "../../assets/icon-transparent.png"
 import Context from "../../context/context"
 
 const Navbar: FC = () => {
@@ -14,7 +13,6 @@ const Navbar: FC = () => {
     <>
       <div className="navbar">
         <h1 className="field-name">{name}</h1>
-        <img className="icon" src={icon} alt="f5" />
         <div className={`links-container ${active ? "active" : ""}`}>
           <Link className={pathname === "/" ? "active-link" : ""} to={"/"}>
             Home
