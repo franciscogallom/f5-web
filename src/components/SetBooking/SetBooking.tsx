@@ -7,14 +7,17 @@ import { getTimeRangeAndNumberOfField } from "../../services/getTimeRangeAndNumb
 import Context from "../../context/context"
 import ButtonTwo from "../ButtonTwo/ButtonTwo"
 import Loader from "../Loader/Loader"
+import { setBooking } from "../../services/setBooking"
+import { Messages } from "../../assets/messages"
 
 function SetBooking() {
   const [loading, setLoading] = useState(false)
   const [loadingData, setLoadingData] = useState(false)
   const [day, setDay] = useState(1) // 1 = LUNES.
   const [field, setField] = useState(0) // 0 = CANCHA 1.
-  const [hour, setHour] = useState(0) // Set in useEffect.
+  const [hour, setHour] = useState(0) // Set in useEffect with first hour in hours array.
   const [username, setUsername] = useState("")
+  const [phone, setPhone] = useState("")
   const [hours, setHours] = useState<Array<number>>([])
   const [fields, setFields] = useState<Array<number>>([])
 
@@ -40,16 +43,25 @@ function SetBooking() {
   }, [user, navigate])
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    // TO-DO: add functionality.
     e.preventDefault()
-    if (username.length > 0) {
+    if (username.length > 0 || phone.length > 0) {
       setLoading(true)
-      setTimeout(() => {
-        setLoading(false)
-        alert(`${username} - bookings[${day}][${field}][${hour - hours[0]}]`)
-      }, 5000)
+      setBooking(user, day, field, hour - hours[0], username, phone)
+        .then((res) => {
+          res.error
+            ? toast.error(res.message, { position: "bottom-center" })
+            : toast.success(res.message, { position: "bottom-center" })
+        })
+        .catch(() => {
+          toast.error(Messages.error, { position: "bottom-center" })
+        })
+        .finally(() => {
+          setLoading(false)
+        })
     } else {
-      toast.error("Ingrese a nombre de quien.", { position: "bottom-center" })
+      toast.error("Ingrese a nombre de quien y un número de celular.", {
+        position: "bottom-center",
+      })
     }
   }
 
@@ -99,6 +111,12 @@ function SetBooking() {
         type="text"
         placeholder="a nombre de..."
         onChange={({ target }) => setUsername(target.value)}
+      />
+
+      <input
+        type="number"
+        placeholder="número de celular."
+        onChange={({ target }) => setPhone(target.value)}
       />
 
       <ButtonTwo text="confirmar" loading={loading} />
