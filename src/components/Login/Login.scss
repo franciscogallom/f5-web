@@ -59,8 +59,15 @@
   .container-login {
     grid-template-columns: 1fr;
     gap: 5rem;
-    padding-top: 2em;
-    padding-bottom: 2em;
+    padding-top: 4em;
+    padding-bottom: 4em;
+
+    .container-login-banner {
+      h1 {
+        font-size: 4em;
+        text-align: center;
+      }
+    }
 
     .container-login-form {
       form {
