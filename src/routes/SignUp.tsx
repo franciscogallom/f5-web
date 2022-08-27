@@ -40,8 +40,8 @@ const SignUp = () => {
   return (
     <ContainerWithForm handleOnSubmit={handleInscription}>
       <Input type="text" placeholder="nombre del complejo." handleOnChange={setName} />
-      <Input type="email" placeholder="email de contacto." handleOnChange={setEmail} />
       <Input type="text" placeholder="dirección." handleOnChange={setLocation} />
+      <Input type="email" placeholder="email de contacto." handleOnChange={setEmail} />
       <Input type="number" placeholder="número del celular." handleOnChange={setPhone} />
       <ButtonOne text="solicitar inscripción." loading={loading} />
     </ContainerWithForm>

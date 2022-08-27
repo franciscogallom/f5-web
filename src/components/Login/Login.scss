@@ -1,9 +1,56 @@
 @use "../../assets/colors.scss" as *;
 
-.add-my-field {
-  color: $secondary;
-  font-weight: bold;
-  text-decoration: none;
-  text-align: center;
-  padding: 1em;
+.container-login {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  align-content: center;
+
+  .container-login-banner {
+    padding: 1em;
+
+    h1 {
+      font-weight: 900;
+      font-size: 5em;
+      line-height: 0.8em;
+      letter-spacing: -0.1em;
+      text-transform: uppercase;
+      font-style: italic;
+    }
+
+    .gradient-banner {
+      background: linear-gradient(to right, $quaternary, $tertiary, $quaternary);
+      background-size: 200% auto;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      animation: shine 10s linear infinite;
+      @keyframes shine {
+        to {
+          background-position: 200% center;
+        }
+      }
+    }
+  }
+
+  .container-login-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    form {
+      width: 60%;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .add-my-field {
+    color: $secondary;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    padding: 1em;
+  }
 }

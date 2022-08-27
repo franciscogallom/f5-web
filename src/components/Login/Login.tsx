@@ -8,7 +8,6 @@ import Context from "../../context/context"
 import { Messages } from "../../assets/messages"
 import Input from "../Input/Input"
 import ButtonOne from "../ButtonOne/ButtonOne"
-import ContainerWithForm from "../ContainerWithForm/ContainerWithForm"
 
 const Login = () => {
   const [username, setUsername] = useState("")
@@ -43,14 +42,23 @@ const Login = () => {
   }
 
   return (
-    <ContainerWithForm handleOnSubmit={handleLogin}>
-      <Input type="text" placeholder="usuario." handleOnChange={setUsername} />
-      <Input type="password" placeholder="contraseña." handleOnChange={setPassword} />
-      <ButtonOne text="iniciar sesión." loading={loading} />
-      <Link to="/signup" className="add-my-field">
-        Quiero sumar mi cancha!
-      </Link>
-    </ContainerWithForm>
+    <div className="container-login">
+      <div className="container-login-banner">
+        <h1 className="gradient-banner">
+          Gestiona tu complejo de futbol de forma facil y eficiente.
+        </h1>
+      </div>
+      <div className="container-login-form">
+        <form onSubmit={handleLogin}>
+          <Input type="text" placeholder="usuario." handleOnChange={setUsername} />
+          <Input type="password" placeholder="contraseña." handleOnChange={setPassword} />
+          <ButtonOne text="iniciar sesión." loading={loading} />
+          <Link to="/signup" className="add-my-field">
+            Quiero sumar mi cancha!
+          </Link>
+        </form>
+      </div>
+    </div>
   )
 }
 
