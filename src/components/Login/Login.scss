@@ -24,6 +24,7 @@
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      padding-left: 0.5em;
 
       animation: shine 10s linear infinite;
       @keyframes shine {
@@ -39,6 +40,10 @@
     justify-content: center;
     align-items: center;
 
+    .gradient-banner {
+      padding-left: 0;
+    }
+
     form {
       width: 60%;
       display: flex;
@@ -47,7 +52,7 @@
   }
 
   .add-my-field {
-    color: $secondary;
+    color: $grey;
     font-weight: bold;
     text-decoration: none;
     text-align: center;
